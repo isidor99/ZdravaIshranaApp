@@ -11,7 +11,6 @@ import android.view.View;
 public class TabbedActivity extends AppCompatActivity {
 
     ViewPager viewPager;
-    ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
