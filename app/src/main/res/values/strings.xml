@@ -4,5 +4,14 @@
     <string name="tab_text_2">Prodavnice</string>
     <string name="tab_text_3">Proizvodi</string>
     <string name="action_settings">Settings</string>
-    <string name="section_format">Hello World from section: %1$d</string>
+
+    <!-- card view stringovi -->
+    <string name="image_view_content_description">Slika proizvoda</string>
+    <string name="card_view_proteini">proteini</string>
+    <string name="card_view_ugljeni_hidrati">ugljeni hidrati</string>
+    <string name="card_view_masti">masti</string>
+
+    <!-- location toast -->
+    <string name="location_toast">Dozvola odbijena!Morate omoguciti dozvolu!</string>
+
 </resources>

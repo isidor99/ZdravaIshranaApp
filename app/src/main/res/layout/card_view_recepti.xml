@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_marginBottom="@dimen/one_card_margin_bottom">
+
+    <RelativeLayout
+        android:id="@+id/relative_layout_image_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/image_view_height">
+
+        <ImageView
+            android:id="@+id/card_slika"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/image_view_height"
+            android:scaleType="fitXY"
+            android:layout_marginStart="@dimen/image_view_margin_start_end_top"
+            android:layout_marginEnd="@dimen/image_view_margin_start_end_top"
+            android:layout_marginTop="@dimen/image_view_margin_start_end_top"
+            android:contentDescription="@string/image_view_content_description"/>
+
+        <LinearLayout
+            android:id="@+id/linerar_layout_opis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="@dimen/linear_layout_opis_margin_start_end"
+            android:layout_marginEnd="@dimen/linear_layout_opis_margin_start_end"
+            android:layout_alignParentBottom="true"
+            android:padding="@dimen/linear_layout_opis_padding"
+            android:background="@color/linear_layout_opis_background_color">
+
+            <TextView
+                android:id="@+id/card_naslov"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="22sp"
+                android:layout_gravity="left"
+                android:textColor="@color/linear_layout_opis_recepta_boja_slova"
+                android:padding="@dimen/linear_layout_opis_padding"/>
+
+            <TextView
+                android:id="@+id/card_tekst"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_gravity="left"
+                android:textColor="@color/linear_layout_opis_recepta_boja_slova"
+                android:padding="@dimen/linear_layout_opis_padding"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_below="@+id/relative_layout_image_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:baselineAligned="false"
+        android:weightSum="3"
+        android:layout_marginStart="@dimen/linear_layout_opis_margin_start_end"
+        android:layout_marginEnd="@dimen/linear_layout_opis_margin_start_end"
+        android:background="@drawable/linear_layout_podaci_shape">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:paddingTop="@dimen/linear_layout_podaci_padding_top"
+            android:paddingBottom="@dimen/linear_layout_podaci_padding_bottom">
+
+            <TextView
+                android:id="@+id/card_view_proteini"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_view_podaci_text_size"
+                android:padding="@dimen/text_view_padding"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/card_view_proteini"
+                android:padding="@dimen/text_view_padding"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/linear_layout_podaci_padding_top"
+            android:paddingBottom="@dimen/linear_layout_podaci_padding_bottom">
+
+            <TextView
+                android:id="@+id/card_view_ugljeni_hidrati"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_view_podaci_text_size"
+                android:padding="@dimen/text_view_padding"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/card_view_ugljeni_hidrati"
+                android:padding="@dimen/text_view_padding"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:paddingTop="@dimen/linear_layout_podaci_padding_top"
+            android:paddingBottom="@dimen/linear_layout_podaci_padding_bottom">
+
+            <TextView
+                android:id="@+id/card_view_masti"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_view_podaci_text_size"
+                android:padding="@dimen/text_view_padding"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/card_view_masti"
+                android:padding="@dimen/text_view_padding"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
