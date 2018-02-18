@@ -3,6 +3,7 @@ package com.example.saki99.zdravaishranaapp;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.content.pm.PackageManager;
+import android.graphics.BitmapFactory;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -14,9 +15,15 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -24,6 +31,9 @@ import java.util.Locale;
 public class TabbedActivity extends AppCompatActivity {
 
     ViewPager viewPager;
+    RecyclerView listView;
+    private NavigationDrawerRecyclerViewAdapter nAdapter;
+    private ArrayList<NavigationItem> nItems;
 
     private static final int MY_PERMISSION_REQUEST_LOCATION = 1;
 
@@ -35,6 +45,10 @@ public class TabbedActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tabbed);
 
         viewPager = findViewById(R.id.container);
+        listView = findViewById(R.id.navList);
+
+        nItems = new ArrayList<>();
+
 
         SimpleFragmentPagerAdapter pagerAdapter = new SimpleFragmentPagerAdapter(TabbedActivity.this, getSupportFragmentManager());
 
@@ -42,6 +56,8 @@ public class TabbedActivity extends AppCompatActivity {
 
         TabLayout tabLayout = findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
+
+        addDrawerItems();
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -69,6 +85,22 @@ public class TabbedActivity extends AppCompatActivity {
 
             Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
         }
+
+
+    }
+    private void addDrawerItems(){
+
+        nItems.add(new NavigationItem("Favourites", BitmapFactory.decodeResource(getResources(), R.drawable.heart_outline)));
+        nItems.add(new NavigationItem("Shoping", BitmapFactory.decodeResource(getResources(), R.drawable.cart)));
+        nItems.add(new NavigationItem("Articles", BitmapFactory.decodeResource(getResources(), R.drawable.library)));
+
+        nAdapter = new NavigationDrawerRecyclerViewAdapter(nItems);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+
+        listView.setLayoutManager(layoutManager);
+        listView.setItemAnimator(new DefaultItemAnimator());
+        listView.setAdapter(nAdapter);
+        nAdapter.notifyDataSetChanged();
     }
 
     @Override
