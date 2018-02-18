@@ -15,4 +15,6 @@
     <dimen name="text_view_padding">3dp</dimen>
     <dimen name="text_view_podaci_text_size">18sp</dimen>
     <dimen name="one_card_margin_bottom">15dp</dimen>
+    <dimen name="recept_favourite_size">36dp</dimen>
+    <dimen name="recept_favourite_margin">18dp</dimen>
 </resources>

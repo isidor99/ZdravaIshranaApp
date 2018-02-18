@@ -1,10 +1,13 @@
 package com.example.saki99.zdravaishranaapp;
 
+import android.content.res.Resources;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,6 +30,7 @@ public class RecyclerViewReceptiAdapter extends RecyclerView.Adapter<RecyclerVie
 
         private HashMap <String, TextView> textViewHashMap = new HashMap<>();
         private ImageView slika;
+        private ImageButton omiljeni;
 
         public  ReceptiViewHolder(View view) {
             super(view);
@@ -38,7 +42,7 @@ public class RecyclerViewReceptiAdapter extends RecyclerView.Adapter<RecyclerVie
             textViewHashMap.put(Constants.RECEPT_UGLJENI_HIDRATI, (TextView) view.findViewById(R.id.card_view_ugljeni_hidrati));
 
             slika = view.findViewById(R.id.card_slika);
-
+            omiljeni = view.findViewById(R.id.card_favourite);
         }
 
     }
@@ -51,7 +55,11 @@ public class RecyclerViewReceptiAdapter extends RecyclerView.Adapter<RecyclerVie
         holder.textViewHashMap.get(Constants.RECEPT_BROJ_PROTEINA).setText(recepti.get(position).getProteini());
         holder.textViewHashMap.get(Constants.RECEPT_MASTI).setText(recepti.get(position).getMasti());
         holder.textViewHashMap.get(Constants.RECEPT_UGLJENI_HIDRATI).setText(recepti.get(position).getUgljenHidrati());
-        holder.slika.setBackgroundDrawable(new BitmapDrawable(recepti.get(position).getSlika()));
+        holder.slika.setBackground(new BitmapDrawable(recepti.get(position).getSlika()));
+        if(recepti.get(position).isOmiljeni())
+            holder.omiljeni.setBackground(new BitmapDrawable(BitmapFactory.decodeResource(Resources.getSystem(),R.drawable.heart)));
+        else
+            holder.omiljeni.setBackground(new BitmapDrawable(BitmapFactory.decodeResource(Resources.getSystem(),R.drawable.heart_outline)));
 
     }
 

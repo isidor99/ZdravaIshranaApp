@@ -58,7 +58,8 @@ public class ReceptiFragment extends Fragment {
                 "123",
                 "879",
                 "20",
-                bit1));
+                bit1,
+                true));
 
         recepti.add(new Recept(
                 "Soothie od jagode",
@@ -66,7 +67,8 @@ public class ReceptiFragment extends Fragment {
                 "88",
                 "0",
                 "133",
-                bit2
+                bit2,
+                false
         ));
 
         recepti.add(new Recept(
@@ -75,7 +77,8 @@ public class ReceptiFragment extends Fragment {
                 "150",
                 "11",
                 "167",
-                bit3
+                bit3,
+                true
         ));
 
         recepti.add(new Recept(
@@ -84,7 +87,8 @@ public class ReceptiFragment extends Fragment {
                 "788",
                 "240",
                 "19",
-                bit4
+                bit4,
+                false
         ));
 
         recepti.add(new Recept(
@@ -93,7 +97,8 @@ public class ReceptiFragment extends Fragment {
                 "470",
                 "1200",
                 "99",
-                bit5
+                bit5,
+                false
         ));
 
         try {

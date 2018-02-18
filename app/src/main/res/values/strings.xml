@@ -7,6 +7,7 @@
 
     <!-- card view stringovi -->
     <string name="image_view_content_description">Slika proizvoda</string>
+    <string name="recept_favourite_content_description">Slika da li je omiljeni</string>
     <string name="card_view_proteini">proteini</string>
     <string name="card_view_ugljeni_hidrati">ugljeni hidrati</string>
     <string name="card_view_masti">masti</string>

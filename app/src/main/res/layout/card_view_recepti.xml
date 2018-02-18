@@ -10,6 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/image_view_height">
 
+
+
         <ImageView
             android:id="@+id/card_slika"
             android:layout_width="match_parent"
@@ -19,6 +21,20 @@
             android:layout_marginEnd="@dimen/image_view_margin_start_end_top"
             android:layout_marginTop="@dimen/image_view_margin_start_end_top"
             android:contentDescription="@string/image_view_content_description"/>
+
+        <ImageButton
+            android:id="@+id/card_favourite"
+            android:layout_width="@dimen/recept_favourite_size"
+            android:layout_height="@dimen/recept_favourite_size"
+            android:scaleType="fitXY"
+            android:layout_alignTop="@id/card_slika"
+            android:layout_alignEnd="@id/card_slika"
+            android:layout_marginTop="@dimen/recept_favourite_margin"
+            android:layout_marginEnd="@dimen/recept_favourite_margin"
+            android:contentDescription="@string/recept_favourite_content_description"
+            android:backgroundTint="@color/tabed_activity_background"
+            />
+
 
         <LinearLayout
             android:id="@+id/linerar_layout_opis"

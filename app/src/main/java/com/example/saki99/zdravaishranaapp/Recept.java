@@ -13,16 +13,18 @@ public class Recept {
     private String masti;
     private String ugljenHidrati;
     private Bitmap slika;
+    private boolean omiljeni;
 
     public Recept() {}
 
-    public Recept(String naziv, String opis, String proteini, String masti, String ugljenHidrati, Bitmap slika) {
+    public Recept(String naziv, String opis, String proteini, String masti, String ugljenHidrati, Bitmap slika,boolean omiljeni) {
         this.naziv = naziv;
         this.opis = opis;
         this.proteini = proteini;
         this.masti = masti;
         this.ugljenHidrati = ugljenHidrati;
         this.slika = slika;
+        this.omiljeni = omiljeni;
     }
 
     public Recept(String naziv, String opis, String proteini, String masti, String ugljenHidrati) {
@@ -79,5 +81,13 @@ public class Recept {
 
     public void setSlika(Bitmap slika) {
         this.slika = slika;
+    }
+
+    public boolean isOmiljeni() {
+        return omiljeni;
+    }
+
+    public void setOmiljeni(boolean omiljeni) {
+        this.omiljeni = omiljeni;
     }
 }
