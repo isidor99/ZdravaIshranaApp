@@ -8,5 +8,6 @@
     <color name="linear_layout_opis_background_color">#96706e6e</color>
     <color name="linear_layout_podaci_background">#f7f7f7</color>
     <color name="tabed_activity_background">#7eb625</color>
+    <color name="tabed_activity_background_transparent">#777eb625</color>
     <color name="linear_layout_opis_recepta_boja_slova">#ffffff</color>
 </resources>

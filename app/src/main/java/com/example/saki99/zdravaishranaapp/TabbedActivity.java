@@ -59,13 +59,7 @@ public class TabbedActivity extends AppCompatActivity {
 
         addDrawerItems();
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-            }
-        });
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
