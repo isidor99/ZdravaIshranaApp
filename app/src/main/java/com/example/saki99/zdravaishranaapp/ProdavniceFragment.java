@@ -23,14 +23,10 @@ public class ProdavniceFragment extends Fragment {
     RecyclerView prodavniceLista;
     ArrayList<Prodavnica> prodavnice;
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        View view = inflater.inflate(R.layout.fragment_prodavnice, container, false);
-
+    public void onStart() {
+        super.onStart();
         prodavnice = new ArrayList<>();
-        prodavniceLista = view.findViewById(R.id.lista_prodavnice);
 
         prodavnice.add(new Prodavnica("Bio Shop Jana","Veljka Bulajica 13b", BitmapFactory.decodeResource(getResources(),R.drawable.jana_bio_shop)));
 
@@ -47,9 +43,24 @@ public class ProdavniceFragment extends Fragment {
         } catch (Exception e){
             Toast.makeText(getContext(),e.getMessage(),Toast.LENGTH_LONG).show();
         }
+    }
 
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
+        View view = inflater.inflate(R.layout.fragment_prodavnice, container, false);
 
+        prodavniceLista = view.findViewById(R.id.lista_prodavnice);
         return view;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+        prodavniceLista = null;
+        prodavnice = null;
+        Runtime.getRuntime().gc();
     }
 }

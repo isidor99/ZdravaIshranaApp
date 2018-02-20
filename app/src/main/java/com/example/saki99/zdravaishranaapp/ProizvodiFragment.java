@@ -67,4 +67,13 @@ public class ProizvodiFragment extends Fragment {
         }
         return view;
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+        proizvodi = null;
+        listaProizvodi = null;
+        Runtime.getRuntime().gc();
+    }
 }

@@ -38,20 +38,30 @@ import java.util.Locale;
 public class ReceptiFragment extends Fragment {
 
     ArrayList<Recept> recepti = new ArrayList<>();
+    RecyclerView recyclerView;
+    FloatingActionButton fab;
+    Bitmap bit1,bit2,bit3,bit4,bit5;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_recepti, container, false);
+        recyclerView = view.findViewById(R.id.recepti_recycler);
+        fab = view.findViewById(R.id.fab);
 
-        RecyclerView recyclerView = view.findViewById(R.id.recepti_recycler);
+        return view;
+    }
 
-        Bitmap bit1 = BitmapFactory.decodeResource(getResources(), R.drawable.sunka);
-        Bitmap bit2 = BitmapFactory.decodeResource(getResources(), R.drawable.jagoda);
-        Bitmap bit3 = BitmapFactory.decodeResource(getResources(), R.drawable.banana);
-        Bitmap bit4 = BitmapFactory.decodeResource(getResources(), R.drawable.riba);
-        Bitmap bit5 = BitmapFactory.decodeResource(getResources(), R.drawable.musaka);
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        bit1 = BitmapFactory.decodeResource(getResources(), R.drawable.sunka);
+        bit2 = BitmapFactory.decodeResource(getResources(), R.drawable.jagoda);
+        bit3 = BitmapFactory.decodeResource(getResources(), R.drawable.banana);
+        bit4 = BitmapFactory.decodeResource(getResources(), R.drawable.riba);
+        bit5 = BitmapFactory.decodeResource(getResources(), R.drawable.musaka);
 
         recepti.add(new Recept(
                 "Sunka",
@@ -106,23 +116,38 @@ public class ReceptiFragment extends Fragment {
 
             RecyclerViewReceptiAdapter adapter = new RecyclerViewReceptiAdapter(recepti);
 
-            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this.getContext());
             recyclerView.setLayoutManager(layoutManager);
             recyclerView.setItemAnimator(new DefaultItemAnimator());
             recyclerView.setAdapter(adapter);
 
         } catch (Exception ex) {
-            Toast.makeText(getContext(), ex.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this.getContext(), ex.getMessage(), Toast.LENGTH_SHORT).show();
         }
 
-        FloatingActionButton fab = view.findViewById(R.id.fab);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
             }
         });
+    }
 
-        return view;
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+        bit1=null;
+        bit2=null;
+        bit3=null;
+        bit4=null;
+        bit5=null;
+
+        recyclerView = null;
+        recepti = null;
+        fab = null;
+        Runtime.getRuntime().gc();
+
     }
 }
