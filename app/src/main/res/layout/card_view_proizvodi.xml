@@ -21,12 +21,12 @@
             android:id="@+id/text_view_proizvodi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Naziv"
-            android:textSize="24dp"
+            android:text=""
+            android:textSize="24sp"
             android:textStyle="italic"
             android:textAlignment="textStart"
             android:padding="2dp"
-            android:layout_toRightOf="@id/image_view_proizvodi"
+            android:layout_toEndOf="@id/image_view_proizvodi"
             android:layout_alignTop="@id/image_view_proizvodi"/>
 
     </RelativeLayout>

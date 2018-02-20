@@ -1,14 +1,13 @@
 package com.example.saki99.zdravaishranaapp;
 
 import android.Manifest;
-import android.app.AlertDialog;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -18,9 +17,6 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -38,6 +34,7 @@ public class TabbedActivity extends AppCompatActivity {
     private static final int MY_PERMISSION_REQUEST_LOCATION = 1;
 
     LocationManager locationManager;
+    DBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +46,8 @@ public class TabbedActivity extends AppCompatActivity {
 
         nItems = new ArrayList<>();
 
+        dbHelper = new DBHelper(TabbedActivity.this);
+        writeToLocalDatabase();
 
         SimpleFragmentPagerAdapter pagerAdapter = new SimpleFragmentPagerAdapter(TabbedActivity.this, getSupportFragmentManager());
 
@@ -82,13 +81,14 @@ public class TabbedActivity extends AppCompatActivity {
 
 
     }
-    private void addDrawerItems(){
+
+    private void addDrawerItems() {
 
         nItems.add(new NavigationItem("Favourites", BitmapFactory.decodeResource(getResources(), R.drawable.heart_outline)));
         nItems.add(new NavigationItem("Shoping", BitmapFactory.decodeResource(getResources(), R.drawable.cart)));
         nItems.add(new NavigationItem("Articles", BitmapFactory.decodeResource(getResources(), R.drawable.library)));
 
-        nAdapter = new NavigationDrawerRecyclerViewAdapter(nItems);
+        nAdapter = new NavigationDrawerRecyclerViewAdapter(nItems, TabbedActivity.this);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
 
         listView.setLayoutManager(layoutManager);
@@ -139,5 +139,62 @@ public class TabbedActivity extends AppCompatActivity {
         }
 
         return city;
+    }
+
+    private void writeToLocalDatabase() {
+        Bitmap bit1 = BitmapFactory.decodeResource(getResources(), R.drawable.sunka);
+        Bitmap bit2 = BitmapFactory.decodeResource(getResources(), R.drawable.jagoda);
+        Bitmap bit3 = BitmapFactory.decodeResource(getResources(), R.drawable.banana);
+        Bitmap bit4 = BitmapFactory.decodeResource(getResources(), R.drawable.riba);
+        Bitmap bit5 = BitmapFactory.decodeResource(getResources(), R.drawable.musaka);
+
+        dbHelper.addRecept(new Recept(
+                "Sunka",
+                "Socna, ukusna i mnogo mesnata!",
+                "123",
+                "879",
+                "20",
+                bit1,
+                true));
+
+        dbHelper.addRecept(new Recept(
+                "Soothie od jagode",
+                "Jako zdravo i osvjezavajuce pice",
+                "88",
+                "0",
+                "133",
+                bit2,
+                false
+        ));
+
+        dbHelper.addRecept(new Recept(
+                "Smoothie od banane",
+                "Osvjezavajuce bice od banane za sve uzraste",
+                "150",
+                "11",
+                "167",
+                bit3,
+                true
+        ));
+
+        dbHelper.addRecept(new Recept(
+                "Riblji fileti",
+                "Zdrava riba bogata sa omega 3",
+                "788",
+                "240",
+                "19",
+                bit4,
+                false
+        ));
+
+        dbHelper.addRecept(new Recept(
+                "Musaka",
+                "Mocna rucak sa krompirom i mesom",
+                "470",
+                "1200",
+                "99",
+                bit5,
+                false
+        ));
     }
 }

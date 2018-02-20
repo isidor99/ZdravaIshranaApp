@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    android:layout_width="wrap_content"
+<RelativeLayout android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginBottom="@dimen/one_card_margin_bottom">
 
     <RelativeLayout
@@ -22,17 +22,18 @@
             android:layout_marginTop="@dimen/image_view_margin_start_end_top"
             android:contentDescription="@string/image_view_content_description"/>
 
-        <ImageButton
+        <com.like.LikeButton
             android:id="@+id/card_favourite"
             android:layout_width="@dimen/recept_favourite_size"
             android:layout_height="@dimen/recept_favourite_size"
-            android:scaleType="fitXY"
             android:layout_alignTop="@id/card_slika"
             android:layout_alignEnd="@id/card_slika"
             android:layout_marginTop="@dimen/recept_favourite_margin"
             android:layout_marginEnd="@dimen/recept_favourite_margin"
             android:contentDescription="@string/recept_favourite_content_description"
-            android:backgroundTint="@color/tabed_activity_background"
+            app:icon_type="heart"
+            app:icon_size="25dp"
+            app:circle_start_color="@color/colorPrimary"
             />
 
 
@@ -53,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:textSize="22sp"
-                android:layout_gravity="left"
+                android:layout_gravity="start"
                 android:textColor="@color/linear_layout_opis_recepta_boja_slova"
                 android:padding="@dimen/linear_layout_opis_padding"/>
 
@@ -62,7 +63,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
-                android:layout_gravity="left"
+                android:layout_gravity="start"
                 android:textColor="@color/linear_layout_opis_recepta_boja_slova"
                 android:padding="@dimen/linear_layout_opis_padding"/>
 

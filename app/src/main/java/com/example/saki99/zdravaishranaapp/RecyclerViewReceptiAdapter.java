@@ -11,6 +11,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.like.LikeButton;
+import com.like.OnLikeListener;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -30,7 +33,7 @@ public class RecyclerViewReceptiAdapter extends RecyclerView.Adapter<RecyclerVie
 
         private HashMap <String, TextView> textViewHashMap = new HashMap<>();
         private ImageView slika;
-        private ImageButton omiljeni;
+        private LikeButton omiljeni;
 
         public  ReceptiViewHolder(View view) {
             super(view);
@@ -56,11 +59,24 @@ public class RecyclerViewReceptiAdapter extends RecyclerView.Adapter<RecyclerVie
         holder.textViewHashMap.get(Constants.RECEPT_MASTI).setText(recepti.get(position).getMasti());
         holder.textViewHashMap.get(Constants.RECEPT_UGLJENI_HIDRATI).setText(recepti.get(position).getUgljenHidrati());
         holder.slika.setBackground(new BitmapDrawable(recepti.get(position).getSlika()));
-        if(recepti.get(position).isOmiljeni())
-            holder.omiljeni.setBackground(new BitmapDrawable(BitmapFactory.decodeResource(Resources.getSystem(),R.drawable.heart)));
-        else
-            holder.omiljeni.setBackground(new BitmapDrawable(BitmapFactory.decodeResource(Resources.getSystem(),R.drawable.heart_outline)));
 
+        //ovde stao
+        if (recepti.get(position).isOmiljeni())
+            holder.omiljeni.setLiked(true);
+        else
+            holder.omiljeni.setLiked(false);
+
+        holder.omiljeni.setOnLikeListener(new OnLikeListener() {
+            @Override
+            public void liked(LikeButton likeButton) {
+
+            }
+
+            @Override
+            public void unLiked(LikeButton likeButton) {
+
+            }
+        });
     }
 
     @Override

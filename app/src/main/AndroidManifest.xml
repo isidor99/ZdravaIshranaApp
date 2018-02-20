@@ -7,7 +7,6 @@
 
     <uses-feature android:name="android.hardware.location.gps" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -25,8 +24,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".QRScannerActivity" />
+
+        <activity
+            android:name=".FavSopClanciActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".TabbedActivity" />
+        </activity>
+
     </application>
 
 </manifest>

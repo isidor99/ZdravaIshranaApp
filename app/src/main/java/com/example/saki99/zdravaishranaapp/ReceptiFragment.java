@@ -1,23 +1,9 @@
 package com.example.saki99.zdravaishranaapp;
 
-import android.Manifest;
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.location.Address;
-import android.location.Criteria;
-import android.location.Geocoder;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -27,8 +13,6 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
 
 
 /**
@@ -38,9 +22,14 @@ import java.util.Locale;
 public class ReceptiFragment extends Fragment {
 
     ArrayList<Recept> recepti = new ArrayList<>();
+<<<<<<< Updated upstream
     RecyclerView recyclerView;
     FloatingActionButton fab;
     Bitmap bit1,bit2,bit3,bit4,bit5;
+=======
+    DBHelper dbHelper;
+    RecyclerView recyclerView;
+>>>>>>> Stashed changes
 
     @Nullable
     @Override
@@ -50,6 +39,7 @@ public class ReceptiFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recepti_recycler);
         fab = view.findViewById(R.id.fab);
 
+<<<<<<< Updated upstream
         return view;
     }
 
@@ -111,6 +101,28 @@ public class ReceptiFragment extends Fragment {
                 bit5,
                 false
         ));
+=======
+        recyclerView = view.findViewById(R.id.recepti_recycler);
+
+        dbHelper = new DBHelper(getContext());
+
+        showAll();
+
+        FloatingActionButton fab = view.findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        return view;
+    }
+
+    private void showAll() {
+
+        recepti = (ArrayList<Recept>) dbHelper.getAllRecepti();
+>>>>>>> Stashed changes
 
         try {
 
@@ -124,6 +136,7 @@ public class ReceptiFragment extends Fragment {
         } catch (Exception ex) {
             Toast.makeText(this.getContext(), ex.getMessage(), Toast.LENGTH_SHORT).show();
         }
+<<<<<<< Updated upstream
 
 
         fab.setOnClickListener(new View.OnClickListener() {
@@ -149,5 +162,7 @@ public class ReceptiFragment extends Fragment {
         fab = null;
         Runtime.getRuntime().gc();
 
+=======
+>>>>>>> Stashed changes
     }
 }

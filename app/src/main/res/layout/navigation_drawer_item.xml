@@ -2,25 +2,28 @@
 <RelativeLayout
     android:id="@+id/navigation_item"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="260dp"
-    android:layout_height="60dp"
-    >
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
 
     <ImageView
         android:id="@+id/navigation_drawer_slicica"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_alignTop="@id/navigation_drawer_tekst"
+        android:contentDescription="@string/item_image_content_description"
         android:layout_marginStart="10dp"/>
+
     <TextView
         android:id="@+id/navigation_drawer_tekst"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="32dp"
         android:layout_centerInParent="true"
-        android:layout_marginStart="10dp"
-        android:layout_toRightOf="@id/navigation_drawer_slicica"
-        android:text="Item"
-        android:textSize="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_toEndOf="@id/navigation_drawer_slicica"
+        android:text="@string/item"
+        android:textSize="20sp"
         android:textStyle="italic"
         android:textAlignment="viewStart"
         />

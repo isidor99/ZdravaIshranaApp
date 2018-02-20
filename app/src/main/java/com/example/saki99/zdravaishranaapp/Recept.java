@@ -17,7 +17,7 @@ public class Recept {
 
     public Recept() {}
 
-    public Recept(String naziv, String opis, String proteini, String masti, String ugljenHidrati, Bitmap slika,boolean omiljeni) {
+    public Recept(String naziv, String opis, String proteini, String masti, String ugljenHidrati, Bitmap slika, boolean omiljeni) {
         this.naziv = naziv;
         this.opis = opis;
         this.proteini = proteini;

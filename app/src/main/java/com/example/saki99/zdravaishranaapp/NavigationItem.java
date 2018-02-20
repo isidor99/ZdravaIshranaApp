@@ -11,10 +11,11 @@ public class NavigationItem {
     private String naziv;
     private Bitmap slika;
 
-    NavigationItem(String naziv, Bitmap slika)
-    {
-        this.naziv=naziv;
-        this.slika=slika;
+    public NavigationItem () {}
+
+    public NavigationItem(String naziv, Bitmap slika) {
+        this.naziv = naziv;
+        this.slika = slika;
     }
 
     public String getNaziv() {

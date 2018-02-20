@@ -15,4 +15,11 @@
     <!-- location toast -->
     <string name="location_toast">Dozvola odbijena!Morate omoguciti dozvolu!</string>
 
+    <!-- car item -->
+    <string name="item">Item</string>
+    <string name="item_image_content_description">Ikonica</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

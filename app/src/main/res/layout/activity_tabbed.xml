@@ -10,8 +10,8 @@
     tools:context="com.example.saki99.zdravaishranaapp.TabbedActivity">
 
     <RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
 
 
         <android.support.design.widget.TabLayout
@@ -35,7 +35,7 @@
         android:id="@+id/navList"
         android:layout_width="200dp"
         android:layout_height="match_parent"
-        android:layout_gravity="left|start"
+        android:layout_gravity="start|start"
         android:background="@color/tabed_activity_background"
         android:layout_marginTop="10dp"/>
 
