@@ -1,15 +1,14 @@
 package com.example.saki99.zdravaishranaapp;
 
-import android.content.res.Resources;
-import android.graphics.BitmapFactory;
+import android.content.Context;
 import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.like.LikeButton;
 import com.like.OnLikeListener;
@@ -24,9 +23,24 @@ import java.util.HashMap;
 public class RecyclerViewReceptiAdapter extends RecyclerView.Adapter<RecyclerViewReceptiAdapter.ReceptiViewHolder> {
 
     private ArrayList<Recept> recepti;
+    private DBHelper dbHelper;
+    private int kod;
+    private Context context;
 
-    public RecyclerViewReceptiAdapter(ArrayList<Recept> recepti) {
+    public RecyclerViewReceptiAdapter(ArrayList<Recept> recepti, Context context) {
+
         this.recepti = recepti;
+        this.dbHelper = new DBHelper(context);
+        this.context = context;
+        this.kod = -1; // ako se adapter formira u ReceptiFragment onda je ovaj kod nebitan
+    }
+
+    public RecyclerViewReceptiAdapter(ArrayList<Recept> recepti, Context context, int kod) {
+
+        this.recepti = recepti;
+        this.dbHelper = new DBHelper(context);
+        this.context = context;
+        this.kod = kod;
     }
 
     public class ReceptiViewHolder extends RecyclerView.ViewHolder {
@@ -51,7 +65,7 @@ public class RecyclerViewReceptiAdapter extends RecyclerView.Adapter<RecyclerVie
     }
 
     @Override
-    public void onBindViewHolder(ReceptiViewHolder holder, int position) {
+    public void onBindViewHolder(ReceptiViewHolder holder, final int position) {
 
         holder.textViewHashMap.get(Constants.RECEPT_NASLOV).setText(recepti.get(position).getNaziv());
         holder.textViewHashMap.get(Constants.RECEPT_OPIS).setText(recepti.get(position).getOpis());
@@ -60,7 +74,6 @@ public class RecyclerViewReceptiAdapter extends RecyclerView.Adapter<RecyclerVie
         holder.textViewHashMap.get(Constants.RECEPT_UGLJENI_HIDRATI).setText(recepti.get(position).getUgljenHidrati());
         holder.slika.setBackground(new BitmapDrawable(recepti.get(position).getSlika()));
 
-        //ovde stao
         if (recepti.get(position).isOmiljeni())
             holder.omiljeni.setLiked(true);
         else
@@ -69,12 +82,23 @@ public class RecyclerViewReceptiAdapter extends RecyclerView.Adapter<RecyclerVie
         holder.omiljeni.setOnLikeListener(new OnLikeListener() {
             @Override
             public void liked(LikeButton likeButton) {
-
+                dbHelper.addOmiljnei(recepti.get(position).getId());
+                if (kod == -1) {
+                    Toast.makeText(context, "Dodato u omiljene recepte!", Toast.LENGTH_LONG).show();
+                }
             }
 
             @Override
             public void unLiked(LikeButton likeButton) {
+                dbHelper.removeOmiljeni(recepti.get(position).getId());
 
+                // ako se nalazimo na omiljenim receptima i odcekiramo neki recept on treba da se ukloni
+                if (kod == Constants.FAVORITES) {
+                    recepti.remove(position);
+                    notifyItemRemoved(position);
+                }
+
+                Toast.makeText(context, "Uklonjeno iz omiljenih recepata!", Toast.LENGTH_LONG).show();
             }
         });
     }

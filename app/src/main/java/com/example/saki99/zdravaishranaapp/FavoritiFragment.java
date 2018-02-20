@@ -39,7 +39,7 @@ public class FavoritiFragment extends Fragment {
 
         try {
 
-            RecyclerViewReceptiAdapter adapter = new RecyclerViewReceptiAdapter(recepti);
+            RecyclerViewReceptiAdapter adapter = new RecyclerViewReceptiAdapter(recepti, getContext(), Constants.FAVORITES);
 
             RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
             listaOmiljneih.setLayoutManager(layoutManager);

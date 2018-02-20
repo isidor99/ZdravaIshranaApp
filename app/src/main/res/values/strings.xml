@@ -19,7 +19,9 @@
     <string name="item">Item</string>
     <string name="item_image_content_description">Ikonica</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- natpisi za FavSopClanciActivity.java -->
+    <string name="label_favorites">Omiljeni recepti</string>
+    <string name="label_shoping">Shoping</string>
+    <string name="label_articles">Articles</string>
 
 </resources>

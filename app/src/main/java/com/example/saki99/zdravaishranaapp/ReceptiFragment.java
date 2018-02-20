@@ -22,14 +22,9 @@ import java.util.ArrayList;
 public class ReceptiFragment extends Fragment {
 
     ArrayList<Recept> recepti = new ArrayList<>();
-<<<<<<< Updated upstream
-    RecyclerView recyclerView;
     FloatingActionButton fab;
-    Bitmap bit1,bit2,bit3,bit4,bit5;
-=======
     DBHelper dbHelper;
     RecyclerView recyclerView;
->>>>>>> Stashed changes
 
     @Nullable
     @Override
@@ -39,7 +34,8 @@ public class ReceptiFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recepti_recycler);
         fab = view.findViewById(R.id.fab);
 
-<<<<<<< Updated upstream
+        dbHelper = new DBHelper(getContext());
+
         return view;
     }
 
@@ -47,97 +43,7 @@ public class ReceptiFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
-        bit1 = BitmapFactory.decodeResource(getResources(), R.drawable.sunka);
-        bit2 = BitmapFactory.decodeResource(getResources(), R.drawable.jagoda);
-        bit3 = BitmapFactory.decodeResource(getResources(), R.drawable.banana);
-        bit4 = BitmapFactory.decodeResource(getResources(), R.drawable.riba);
-        bit5 = BitmapFactory.decodeResource(getResources(), R.drawable.musaka);
-
-        recepti.add(new Recept(
-                "Sunka",
-                "Socna, ukusna i mnogo mesnata!",
-                "123",
-                "879",
-                "20",
-                bit1,
-                true));
-
-        recepti.add(new Recept(
-                "Soothie od jagode",
-                "Jako zdravo i osvjezavajuce pice",
-                "88",
-                "0",
-                "133",
-                bit2,
-                false
-        ));
-
-        recepti.add(new Recept(
-                "Smoothie od banane",
-                "Osvjezavajuce bice od banane za sve uzraste",
-                "150",
-                "11",
-                "167",
-                bit3,
-                true
-        ));
-
-        recepti.add(new Recept(
-                "Riblji fileti",
-                "Zdrava riba bogata sa omega 3",
-                "788",
-                "240",
-                "19",
-                bit4,
-                false
-        ));
-
-        recepti.add(new Recept(
-                "Musaka",
-                "Mocna rucak sa krompirom i mesom",
-                "470",
-                "1200",
-                "99",
-                bit5,
-                false
-        ));
-=======
-        recyclerView = view.findViewById(R.id.recepti_recycler);
-
-        dbHelper = new DBHelper(getContext());
-
         showAll();
-
-        FloatingActionButton fab = view.findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-        return view;
-    }
-
-    private void showAll() {
-
-        recepti = (ArrayList<Recept>) dbHelper.getAllRecepti();
->>>>>>> Stashed changes
-
-        try {
-
-            RecyclerViewReceptiAdapter adapter = new RecyclerViewReceptiAdapter(recepti);
-
-            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this.getContext());
-            recyclerView.setLayoutManager(layoutManager);
-            recyclerView.setItemAnimator(new DefaultItemAnimator());
-            recyclerView.setAdapter(adapter);
-
-        } catch (Exception ex) {
-            Toast.makeText(this.getContext(), ex.getMessage(), Toast.LENGTH_SHORT).show();
-        }
-<<<<<<< Updated upstream
-
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -150,19 +56,23 @@ public class ReceptiFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
+    }
 
-        bit1=null;
-        bit2=null;
-        bit3=null;
-        bit4=null;
-        bit5=null;
+    private void showAll() {
 
-        recyclerView = null;
-        recepti = null;
-        fab = null;
-        Runtime.getRuntime().gc();
+        recepti = (ArrayList<Recept>) dbHelper.getAllRecepti();
 
-=======
->>>>>>> Stashed changes
+        try {
+
+            RecyclerViewReceptiAdapter adapter = new RecyclerViewReceptiAdapter(recepti, getContext());
+
+            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+            recyclerView.setLayoutManager(layoutManager);
+            recyclerView.setItemAnimator(new DefaultItemAnimator());
+            recyclerView.setAdapter(adapter);
+
+        } catch (Exception ex) {
+            Toast.makeText(getContext(), ex.getMessage(), Toast.LENGTH_SHORT).show();
+        }
     }
 }

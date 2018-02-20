@@ -41,12 +41,17 @@ public class FavSopClanciActivity extends AppCompatActivity {
         if (tip == Constants.FAVORITES) {
 
             fragmentManager.beginTransaction().add(R.id.okvir, new FavoritiFragment()).commit();
+            getSupportActionBar().setTitle(getResources().getString(R.string.label_favorites));
 
         } else if (tip == Constants.SOPING) {
 
+            fragmentManager.beginTransaction().add(R.id.okvir, new ShopingFragment()).commit();
+            getSupportActionBar().setTitle(getResources().getString(R.string.label_shoping));
 
         } else if (tip == Constants.ARTIKLI) {
 
+            fragmentManager.beginTransaction().add(R.id.okvir, new ArticlesFragment()).commit();
+            getSupportActionBar().setTitle(getResources().getString(R.string.label_articles));
 
         }
     }

@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
  */
 
 public class Recept {
+    private int id;
     private String naziv;
     private String opis;
     private String proteini;
@@ -90,4 +91,9 @@ public class Recept {
     public void setOmiljeni(boolean omiljeni) {
         this.omiljeni = omiljeni;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    public int getId() { return this.id; }
 }

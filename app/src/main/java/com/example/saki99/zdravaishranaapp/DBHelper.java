@@ -1,18 +1,12 @@
 package com.example.saki99.zdravaishranaapp;
 
-import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
-import android.database.CharArrayBuffer;
-import android.database.ContentObserver;
 import android.database.Cursor;
-import android.database.DataSetObserver;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
-import android.os.Bundle;
 import android.provider.BaseColumns;
 
 import java.io.ByteArrayOutputStream;
@@ -68,6 +62,7 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    //upisi recept u bazu
     public void addRecept(Recept recept) {
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -86,6 +81,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.close();
     }
 
+    //procitaj sve recepte iz baze
     public List<Recept> getAllRecepti() {
 
         List<Recept> recepti = new ArrayList<>();
@@ -106,14 +102,31 @@ public class DBHelper extends SQLiteOpenHelper {
         return recepti;
     }
 
-    public void addOmiljnei() {
+    //dodaj recept u omiljene
+    public void addOmiljnei(int id) {
 
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(TabelaRecepti.OMILJENI, 1);
+
+        db.update(TabelaRecepti.TABELA_IME, values, "_id = " + id, null);
+        db.close();
     }
 
-    public void removeOmiljeni() {
+    //ukloni recept iz omiljenih
+    public void removeOmiljeni(int id) {
 
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(TabelaRecepti.OMILJENI, 0);
+
+        db.update(TabelaRecepti.TABELA_IME, values, "_id = " + id, null);
+        db.close();
     }
 
+    //procitaj sve omiljene
     public List<Recept> getOmiljeniRecepti() {
 
         ArrayList<Recept> recepti = new ArrayList<>();
@@ -136,6 +149,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return recepti;
     }
 
+    // convert bitmap to byte array
     private static byte[] getBytes(Bitmap bitmap) {
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG, 0, stream);
@@ -147,9 +161,11 @@ public class DBHelper extends SQLiteOpenHelper {
         return BitmapFactory.decodeByteArray(image, 0, image.length);
     }
 
+    // funkcija za citanje recepta
     private Recept procitajRecept(Cursor cursor) {
         Recept recept = new Recept();
 
+        recept.setId(cursor.getInt(0));
         recept.setNaziv(cursor.getString(1));
         recept.setOpis(cursor.getString(2));
         recept.setProteini(cursor.getString(3));
