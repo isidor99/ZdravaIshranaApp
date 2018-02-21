@@ -1,4 +1,4 @@
-package com.example.saki99.zdravaishranaapp;
+package com.example.saki99.zdravaishranaapp.Activityes;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -6,6 +6,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Toast;
 import android.support.v4.app.FragmentManager;
+
+import com.example.saki99.zdravaishranaapp.Constants;
+import com.example.saki99.zdravaishranaapp.Fragments.ArticlesFragment;
+import com.example.saki99.zdravaishranaapp.Fragments.FavoritiFragment;
+import com.example.saki99.zdravaishranaapp.Fragments.ShopingFragment;
+import com.example.saki99.zdravaishranaapp.R;
 
 public class FavSopClanciActivity extends AppCompatActivity {
 

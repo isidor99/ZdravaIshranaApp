@@ -1,4 +1,4 @@
-package com.example.saki99.zdravaishranaapp;
+package com.example.saki99.zdravaishranaapp.Fragments;
 
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -11,6 +11,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
+import com.example.saki99.zdravaishranaapp.POJO.Prodavnica;
+import com.example.saki99.zdravaishranaapp.Adapters.ProdavniceRecyclerViewAdapter;
+import com.example.saki99.zdravaishranaapp.R;
 
 import java.util.ArrayList;
 
@@ -28,7 +32,7 @@ public class ProdavniceFragment extends Fragment {
         super.onStart();
         prodavnice = new ArrayList<>();
 
-        prodavnice.add(new Prodavnica("Bio Shop Jana","Veljka Bulajica 13b", BitmapFactory.decodeResource(getResources(),R.drawable.jana_bio_shop)));
+        prodavnice.add(new Prodavnica("Bio Shop Jana","Veljka Bulajica 13b", BitmapFactory.decodeResource(getResources(), R.drawable.jana_bio_shop)));
 
         try {
 

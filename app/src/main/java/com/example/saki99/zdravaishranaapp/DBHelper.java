@@ -5,11 +5,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.provider.BaseColumns;
 
-import java.io.ByteArrayOutputStream;
+import com.example.saki99.zdravaishranaapp.POJO.Recept;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,7 +30,8 @@ public class DBHelper extends SQLiteOpenHelper {
         public static final String UGLJENI_HIDRATI = "ugljeni_hidrati";
         public static final String MASTI = "masti";
         public static final String OMILJENI = "omiljeni";
-        public static final String SLIKA = "slika";
+        public static final String SLIKA_ADRESA = "slika_adresa";
+        public static final String SLIKA_IME = "slika_ime";
     }
 
     public DBHelper(Context context) {
@@ -48,7 +48,8 @@ public class DBHelper extends SQLiteOpenHelper {
                                 + TabelaRecepti.PROTEINI + " TEXT, "
                                 + TabelaRecepti.UGLJENI_HIDRATI + " TEXT, "
                                 + TabelaRecepti.MASTI + " TEXT, "
-                                + TabelaRecepti.SLIKA + " BLOB, "
+                                + TabelaRecepti.SLIKA_ADRESA + " TEXT, "
+                                + TabelaRecepti.SLIKA_IME + " TEXT, "
                                 + TabelaRecepti.OMILJENI + " INTEGER)";
 
         sqLiteDatabase.execSQL(SQL_QUERY);
@@ -73,7 +74,8 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(TabelaRecepti.PROTEINI, recept.getProteini());
         values.put(TabelaRecepti.UGLJENI_HIDRATI, recept.getUgljenHidrati());
         values.put(TabelaRecepti.MASTI, recept.getMasti());
-        values.put(TabelaRecepti.SLIKA, getBytes(recept.getSlika()));
+        values.put(TabelaRecepti.SLIKA_ADRESA, recept.getAdresaSlika());
+        values.put(TabelaRecepti.SLIKA_IME, recept.getImeSlike());
         values.put(TabelaRecepti.OMILJENI, (recept.isOmiljeni()) ? 1 : 0);
 
 
@@ -149,18 +151,6 @@ public class DBHelper extends SQLiteOpenHelper {
         return recepti;
     }
 
-    // convert bitmap to byte array
-    private static byte[] getBytes(Bitmap bitmap) {
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 0, stream);
-        return stream.toByteArray();
-    }
-
-    // convert from byte array to bitmap
-    private static Bitmap getImage(byte[] image) {
-        return BitmapFactory.decodeByteArray(image, 0, image.length);
-    }
-
     // funkcija za citanje recepta
     private Recept procitajRecept(Cursor cursor) {
         Recept recept = new Recept();
@@ -171,12 +161,13 @@ public class DBHelper extends SQLiteOpenHelper {
         recept.setProteini(cursor.getString(3));
         recept.setUgljenHidrati(cursor.getString(4));
         recept.setMasti(cursor.getString(5));
-        recept.setSlika(getImage(cursor.getBlob(6)));
+        recept.setAdresaSlika(cursor.getString(6));
+        recept.setImeSlike(cursor.getString(7));
 
-        if (cursor.getInt(7) == 0)
+        if (cursor.getInt(8) == 0)
             recept.setOmiljeni(false);
 
-        else if (cursor.getInt(7) == 1)
+        else if (cursor.getInt(8) == 1)
             recept.setOmiljeni(true);
 
         return recept;

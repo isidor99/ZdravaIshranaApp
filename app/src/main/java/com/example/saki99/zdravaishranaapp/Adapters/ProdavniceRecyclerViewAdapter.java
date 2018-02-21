@@ -1,4 +1,4 @@
-package com.example.saki99.zdravaishranaapp;
+package com.example.saki99.zdravaishranaapp.Adapters;
 
 import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.widget.RecyclerView;
@@ -8,7 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import com.example.saki99.zdravaishranaapp.POJO.Prodavnica;
+import com.example.saki99.zdravaishranaapp.R;
 
 import java.util.ArrayList;
 
@@ -20,7 +21,7 @@ public class ProdavniceRecyclerViewAdapter extends RecyclerView.Adapter<Prodavni
 
     ArrayList<Prodavnica> prodavnice;
 
-    ProdavniceRecyclerViewAdapter(ArrayList<Prodavnica> prodavnice){this.prodavnice=prodavnice;}
+    public ProdavniceRecyclerViewAdapter(ArrayList<Prodavnica> prodavnice){this.prodavnice=prodavnice;}
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
 

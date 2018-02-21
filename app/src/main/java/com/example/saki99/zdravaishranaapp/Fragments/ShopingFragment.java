@@ -1,4 +1,4 @@
-package com.example.saki99.zdravaishranaapp;
+package com.example.saki99.zdravaishranaapp.Fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.saki99.zdravaishranaapp.R;
 
 /**
  * Created by Saki99 on 20.2.2018..

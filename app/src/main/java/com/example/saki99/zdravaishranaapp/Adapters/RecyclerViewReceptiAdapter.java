@@ -1,6 +1,8 @@
-package com.example.saki99.zdravaishranaapp;
+package com.example.saki99.zdravaishranaapp.Adapters;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,9 +12,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.saki99.zdravaishranaapp.Constants;
+import com.example.saki99.zdravaishranaapp.DBHelper;
+import com.example.saki99.zdravaishranaapp.R;
+import com.example.saki99.zdravaishranaapp.POJO.Recept;
 import com.like.LikeButton;
 import com.like.OnLikeListener;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -67,12 +76,14 @@ public class RecyclerViewReceptiAdapter extends RecyclerView.Adapter<RecyclerVie
     @Override
     public void onBindViewHolder(ReceptiViewHolder holder, final int position) {
 
+        Bitmap slika = loadImageFromStorage(recepti.get(position).getAdresaSlika(), recepti.get(position).getImeSlike());
+
         holder.textViewHashMap.get(Constants.RECEPT_NASLOV).setText(recepti.get(position).getNaziv());
         holder.textViewHashMap.get(Constants.RECEPT_OPIS).setText(recepti.get(position).getOpis());
         holder.textViewHashMap.get(Constants.RECEPT_BROJ_PROTEINA).setText(recepti.get(position).getProteini());
         holder.textViewHashMap.get(Constants.RECEPT_MASTI).setText(recepti.get(position).getMasti());
         holder.textViewHashMap.get(Constants.RECEPT_UGLJENI_HIDRATI).setText(recepti.get(position).getUgljenHidrati());
-        holder.slika.setBackground(new BitmapDrawable(recepti.get(position).getSlika()));
+        holder.slika.setBackground(new BitmapDrawable(slika));
 
         if (recepti.get(position).isOmiljeni())
             holder.omiljeni.setLiked(true);
@@ -113,5 +124,21 @@ public class RecyclerViewReceptiAdapter extends RecyclerView.Adapter<RecyclerVie
     @Override
     public int getItemCount() {
         return recepti.size();
+    }
+
+    private Bitmap loadImageFromStorage(String path, String name) {
+
+        Bitmap b = null;
+
+        try {
+            File f = new File(path, name + ".jpg");
+            b = BitmapFactory.decodeStream(new FileInputStream(f));
+        }
+        catch (FileNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+
+        return b;
     }
 }

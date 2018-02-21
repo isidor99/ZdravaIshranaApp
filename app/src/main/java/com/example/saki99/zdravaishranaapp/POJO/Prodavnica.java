@@ -1,4 +1,4 @@
-package com.example.saki99.zdravaishranaapp;
+package com.example.saki99.zdravaishranaapp.POJO;
 
 import android.graphics.Bitmap;
 

@@ -1,4 +1,4 @@
-package com.example.saki99.zdravaishranaapp;
+package com.example.saki99.zdravaishranaapp.Activityes;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -18,6 +18,13 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
+
+import com.example.saki99.zdravaishranaapp.DBHelper;
+import com.example.saki99.zdravaishranaapp.Adapters.NavigationDrawerRecyclerViewAdapter;
+import com.example.saki99.zdravaishranaapp.POJO.NavigationItem;
+import com.example.saki99.zdravaishranaapp.R;
+import com.example.saki99.zdravaishranaapp.POJO.Recept;
+import com.example.saki99.zdravaishranaapp.Adapters.SimpleFragmentPagerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +54,6 @@ public class TabbedActivity extends AppCompatActivity {
         nItems = new ArrayList<>();
 
         dbHelper = new DBHelper(TabbedActivity.this);
-        writeToLocalDatabase();
 
         SimpleFragmentPagerAdapter pagerAdapter = new SimpleFragmentPagerAdapter(TabbedActivity.this, getSupportFragmentManager());
 
@@ -139,62 +145,5 @@ public class TabbedActivity extends AppCompatActivity {
         }
 
         return city;
-    }
-
-    private void writeToLocalDatabase() {
-        Bitmap bit1 = BitmapFactory.decodeResource(getResources(), R.drawable.sunka);
-        Bitmap bit2 = BitmapFactory.decodeResource(getResources(), R.drawable.jagoda);
-        Bitmap bit3 = BitmapFactory.decodeResource(getResources(), R.drawable.banana);
-        Bitmap bit4 = BitmapFactory.decodeResource(getResources(), R.drawable.riba);
-        Bitmap bit5 = BitmapFactory.decodeResource(getResources(), R.drawable.musaka);
-
-        dbHelper.addRecept(new Recept(
-                "Sunka",
-                "Socna, ukusna i mnogo mesnata!",
-                "123",
-                "879",
-                "20",
-                bit1,
-                true));
-
-        dbHelper.addRecept(new Recept(
-                "Soothie od jagode",
-                "Jako zdravo i osvjezavajuce pice",
-                "88",
-                "0",
-                "133",
-                bit2,
-                false
-        ));
-
-        dbHelper.addRecept(new Recept(
-                "Smoothie od banane",
-                "Osvjezavajuce bice od banane za sve uzraste",
-                "150",
-                "11",
-                "167",
-                bit3,
-                true
-        ));
-
-        dbHelper.addRecept(new Recept(
-                "Riblji fileti",
-                "Zdrava riba bogata sa omega 3",
-                "788",
-                "240",
-                "19",
-                bit4,
-                false
-        ));
-
-        dbHelper.addRecept(new Recept(
-                "Musaka",
-                "Mocna rucak sa krompirom i mesom",
-                "470",
-                "1200",
-                "99",
-                bit5,
-                false
-        ));
     }
 }

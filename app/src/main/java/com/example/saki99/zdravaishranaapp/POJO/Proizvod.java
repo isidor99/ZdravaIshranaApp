@@ -1,4 +1,4 @@
-package com.example.saki99.zdravaishranaapp;
+package com.example.saki99.zdravaishranaapp.POJO;
 
 import android.graphics.Bitmap;
 
@@ -11,7 +11,7 @@ public class Proizvod {
     private String naziv;
     private Bitmap slika;
 
-    Proizvod(String naziv, Bitmap slika){
+    public Proizvod(String naziv, Bitmap slika){
         this.naziv=naziv;
         this.slika=slika;
     }

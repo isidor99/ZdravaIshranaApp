@@ -1,10 +1,14 @@
-package com.example.saki99.zdravaishranaapp;
+package com.example.saki99.zdravaishranaapp.Adapters;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
+
+import com.example.saki99.zdravaishranaapp.Fragments.ProdavniceFragment;
+import com.example.saki99.zdravaishranaapp.Fragments.ProizvodiFragment;
+import com.example.saki99.zdravaishranaapp.Fragments.ReceptiFragment;
+import com.example.saki99.zdravaishranaapp.R;
 
 /**
  * Created by Saki99 on 9.2.2018..

@@ -1,18 +1,20 @@
-package com.example.saki99.zdravaishranaapp;
+package com.example.saki99.zdravaishranaapp.Fragments;
 
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
+import com.example.saki99.zdravaishranaapp.POJO.Proizvod;
+
+import com.example.saki99.zdravaishranaapp.Adapters.ProizvodiRecyclerViewAdapter;
+import com.example.saki99.zdravaishranaapp.R;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.example.saki99.zdravaishranaapp;
+package com.example.saki99.zdravaishranaapp.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +10,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.saki99.zdravaishranaapp.Activityes.FavSopClanciActivity;
+import com.example.saki99.zdravaishranaapp.POJO.NavigationItem;
+import com.example.saki99.zdravaishranaapp.R;
+
 import java.util.ArrayList;
 /**
  * Created by PC on 2/18/2018.
@@ -20,7 +24,7 @@ public class NavigationDrawerRecyclerViewAdapter extends RecyclerView.Adapter<Na
     private final ArrayList<NavigationItem> opcije;
     private Context context;
 
-    NavigationDrawerRecyclerViewAdapter(ArrayList<NavigationItem> opcije, Context context){
+    public NavigationDrawerRecyclerViewAdapter(ArrayList<NavigationItem> opcije, Context context){
         this.opcije = opcije;
         this.context = context; }
 
