@@ -43,7 +43,6 @@ public class ProizvodiFragment extends Fragment {
         proizvodi.add(new Proizvod("Mladi koziji sir \n \"Cili\"", BitmapFactory.decodeResource(getResources(),R.drawable.koziji_sir)));
         proizvodi.add(new Proizvod("Sok kruska 100% \nVrhovac", BitmapFactory.decodeResource(getResources(),R.drawable.kruska_sok)));
         proizvodi.add(new Proizvod("Polutvrdi koziji sir", BitmapFactory.decodeResource(getResources(),R.drawable.koziji_sir)));
-        proizvodi.add(new Proizvod("Med bagrem \nGagic", BitmapFactory.decodeResource(getResources(),R.drawable.kruska_sok)));
         proizvodi.add(new Proizvod("Tjestenina od jaja", BitmapFactory.decodeResource(getResources(),R.drawable.tjestenina_jaja)));
         proizvodi.add(new Proizvod("Tjestenina od kopriva", BitmapFactory.decodeResource(getResources(),R.drawable.tjestenina_kopriva)));
         proizvodi.add(new Proizvod("Tjestenina sa gljivama", BitmapFactory.decodeResource(getResources(),R.drawable.tjestenina_gljive)));

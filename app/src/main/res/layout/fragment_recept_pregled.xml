@@ -1,0 +1,86 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.saki99.zdravaishranaapp.Fragments.ReceptPregledFragment"
+    >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/slika_pregled_recept"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/image_view_height"/>
+
+            <TextView
+                android:id="@+id/proteini_recept_pregled"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/red_dot"
+                android:text="Proteini"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:textSize="32sp"
+                android:layout_below="@+id/slika_pregled_recept"
+                android:layout_alignStart="@id/slika_pregled_recept"
+                android:layout_marginTop="@dimen/image_view_margin_start_end_top"
+                android:layout_marginStart="@dimen/image_view_margin_start_end_top"/>
+
+            <TextView
+            android:id="@+id/ugljeni_recept_pregled"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/blue_dot"
+            android:text="Ugljeni hidrati"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textSize="32sp"
+            android:layout_below="@+id/proteini_recept_pregled"
+            android:layout_alignStart="@id/slika_pregled_recept"
+            android:layout_marginTop="@dimen/image_view_margin_start_end_top"
+            android:layout_marginStart="@dimen/image_view_margin_start_end_top"/>
+
+            <TextView
+                android:id="@+id/masti_recept_pregled"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/yellow_dot"
+                android:text="Masti"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:textSize="32sp"
+                android:layout_below="@+id/ugljeni_recept_pregled"
+                android:layout_alignStart="@id/slika_pregled_recept"
+                android:layout_marginTop="@dimen/image_view_margin_start_end_top"
+                android:layout_marginStart="@dimen/image_view_margin_start_end_top"/>
+
+            <TextView
+                android:id="@+id/recepti_pregled_naslov"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="32sp"
+                android:text="Naslov"
+                android:layout_marginTop="@dimen/image_view_margin_start_end_top"
+                android:layout_marginStart="@dimen/image_view_margin_start_end_top"
+                android:layout_below="@id/masti_recept_pregled"
+                />
+
+            <TextView
+                android:id="@+id/recepti_pregled_tekst"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:textSize="24sp"
+                android:text="Tekst recepta"
+                android:layout_marginTop="@dimen/image_view_margin_start_end_top"
+                android:layout_marginStart="@dimen/image_view_margin_start_end_top"
+                android:layout_below="@id/recepti_pregled_naslov"
+
+                />
+            </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

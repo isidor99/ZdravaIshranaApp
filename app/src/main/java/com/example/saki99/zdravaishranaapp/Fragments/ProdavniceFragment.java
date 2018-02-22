@@ -32,7 +32,9 @@ public class ProdavniceFragment extends Fragment {
         super.onStart();
         prodavnice = new ArrayList<>();
 
-        prodavnice.add(new Prodavnica("Bio Shop Jana","Veljka Bulajica 13b", BitmapFactory.decodeResource(getResources(), R.drawable.jana_bio_shop)));
+        prodavnice.add(new Prodavnica("Bio Shop Jana | Banja Luka","Ivana Franje Jukića 11", BitmapFactory.decodeResource(getResources(), R.drawable.jana_bio_shop)));
+        prodavnice.add(new Prodavnica("Restoran Rotkvica| Banjaluka","Braće Pantića br. 6",BitmapFactory.decodeResource(getResources(),R.drawable.rotkvica)));
+        prodavnice.add(new Prodavnica("Market FruFru","Branka Ćopića br. 6",BitmapFactory.decodeResource(getResources(),R.drawable.frufru)));
 
         try {
 
@@ -62,7 +64,6 @@ public class ProdavniceFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-
         prodavniceLista = null;
         prodavnice = null;
         Runtime.getRuntime().gc();
