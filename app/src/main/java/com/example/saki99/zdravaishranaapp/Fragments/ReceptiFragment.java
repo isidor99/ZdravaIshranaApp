@@ -15,7 +15,7 @@ import android.widget.Toast;
 import com.example.saki99.zdravaishranaapp.DBHelper;
 import com.example.saki99.zdravaishranaapp.R;
 import com.example.saki99.zdravaishranaapp.POJO.Recept;
-import com.example.saki99.zdravaishranaapp.Adapters.RecyclerViewReceptiAdapter;
+import com.example.saki99.zdravaishranaapp.Adapters.ReceptiRecyclerViewAdapter;
 
 import java.util.ArrayList;
 
@@ -69,7 +69,7 @@ public class ReceptiFragment extends Fragment {
 
         try {
 
-            RecyclerViewReceptiAdapter adapter = new RecyclerViewReceptiAdapter(recepti, getContext());
+            ReceptiRecyclerViewAdapter adapter = new ReceptiRecyclerViewAdapter(recepti, getContext());
 
             RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
             recyclerView.setLayoutManager(layoutManager);

@@ -15,7 +15,7 @@ import com.example.saki99.zdravaishranaapp.Constants;
 import com.example.saki99.zdravaishranaapp.DBHelper;
 import com.example.saki99.zdravaishranaapp.R;
 import com.example.saki99.zdravaishranaapp.POJO.Recept;
-import com.example.saki99.zdravaishranaapp.Adapters.RecyclerViewReceptiAdapter;
+import com.example.saki99.zdravaishranaapp.Adapters.ReceptiRecyclerViewAdapter;
 
 import java.util.ArrayList;
 
@@ -45,7 +45,7 @@ public class FavoritiFragment extends Fragment {
 
         try {
 
-            RecyclerViewReceptiAdapter adapter = new RecyclerViewReceptiAdapter(recepti, getContext(), Constants.FAVORITES);
+            ReceptiRecyclerViewAdapter adapter = new ReceptiRecyclerViewAdapter(recepti, getContext(), Constants.FRAGMENT_FAVORITES);
 
             RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
             listaOmiljneih.setLayoutManager(layoutManager);

@@ -105,7 +105,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     //dodaj recept u omiljene
-    public void addOmiljnei(int id) {
+    public void addOmiljeni(int id) {
 
         SQLiteDatabase db = this.getWritableDatabase();
 

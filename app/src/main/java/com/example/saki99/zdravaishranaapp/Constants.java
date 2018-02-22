@@ -12,7 +12,11 @@ public class Constants {
     public static final String RECEPT_UGLJENI_HIDRATI = "ugljeni_hidrati";
 
     //tipovi sta se izabralo
-    public static final int FAVORITES = 0;
-    public static final int SOPING = 1;
-    public static final int ARTIKLI = 2;
+    public static final int FRAGMENT_FAVORITES = 0;
+    public static final int FRAGMENT_SOPING = 1;
+    public static final int FRAGMENT_ARTIKLI = 2;
+
+    public static final int FRAGMENT_PREGLED_RECEPT = 0;
+    public static final int FRAGMENT_PREGLED_PRODAVNICA = 1;
+    public static final int FRAGMENT_PREGLED_CLANAK = 2;
 }

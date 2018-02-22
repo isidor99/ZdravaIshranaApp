@@ -44,17 +44,17 @@ public class FavSopClanciActivity extends AppCompatActivity {
             Toast.makeText(this, ex.getMessage(), Toast.LENGTH_SHORT).show();
         }
 
-        if (tip == Constants.FAVORITES) {
+        if (tip == Constants.FRAGMENT_FAVORITES) {
 
             fragmentManager.beginTransaction().add(R.id.okvir, new FavoritiFragment()).commit();
             getSupportActionBar().setTitle(getResources().getString(R.string.label_favorites));
 
-        } else if (tip == Constants.SOPING) {
+        } else if (tip == Constants.FRAGMENT_SOPING) {
 
             fragmentManager.beginTransaction().add(R.id.okvir, new ShopingFragment()).commit();
             getSupportActionBar().setTitle(getResources().getString(R.string.label_shoping));
 
-        } else if (tip == Constants.ARTIKLI) {
+        } else if (tip == Constants.FRAGMENT_ARTIKLI) {
 
             fragmentManager.beginTransaction().add(R.id.okvir, new ArticlesFragment()).commit();
             getSupportActionBar().setTitle(getResources().getString(R.string.label_articles));

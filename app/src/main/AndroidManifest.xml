@@ -16,17 +16,13 @@
         android:theme="@style/AppTheme.NoActionBar">
         <activity
             android:name=".Activityes.TabbedActivity"
-            android:label="@string/app_name">
-        </activity>
-
+            android:label="@string/app_name"></activity>
         <activity android:name=".Activityes.QRScannerActivity" />
-
         <activity android:name=".Activityes.FavSopClanciActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Activityes.TabbedActivity" />
         </activity>
-
         <activity
             android:name=".Activityes.StartingActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -36,7 +32,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".Activityes.PregledActivity"></activity>
     </application>
 
 </manifest>
